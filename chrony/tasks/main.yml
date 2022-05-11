@@ -1,2 +1,9 @@
 ---
 # tasks file for chrony
+- name : Install Chrony on Linux
+  become: true
+  package:
+    name: {{install_chrony}}
+    state: present
+    tags:
+      - install_chrony
