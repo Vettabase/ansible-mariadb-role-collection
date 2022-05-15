@@ -1,0 +1,14 @@
+---
+- name: Use chrony role
+  hosts: local_vm
+  become: true
+
+  pre_tasks:
+    - debug:
+        msg: "Before use chrony role"
+  roles:
+    - chrony
+  post_tasks:
+    - debug:
+        msg: "After use chrony role"
+  

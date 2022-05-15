@@ -1,6 +1,6 @@
 galaxy_info:
   author: Aldo Junior
-  description: Chrony instalation and config
+  description: Chrony role
   company: Vettabase
 
   # If the issue tracker for your role is not on github, uncomment the
