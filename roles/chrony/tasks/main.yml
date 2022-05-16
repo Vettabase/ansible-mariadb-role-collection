@@ -1,0 +1,18 @@
+---
+# tasks file for chrony
+
+- name: Install chrony
+  package:
+    name: chrony
+    state: present
+    update_cache: true
+
+- name: Deploy chrony.conf template
+  template:
+    src: chrony.conf.j2
+    dest: /etc/chrony/chrony.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: true
+  notify: Restart chrony

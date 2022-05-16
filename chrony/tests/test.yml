@@ -1,5 +1,0 @@
----
-- hosts: local_vm
-  remote_user: vagrant
-  roles:
-    - chrony
