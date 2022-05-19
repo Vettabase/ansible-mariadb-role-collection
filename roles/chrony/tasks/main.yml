@@ -7,7 +7,7 @@
     state: present
     update_cache: true
 
-- name: Deploy chrony.conf template
+- name: Upload chrony.conf template
   template:
     src: chrony.conf.j2
     dest: /etc/chrony/chrony.conf
@@ -16,5 +16,4 @@
     mode: 0644
     backup: true
   notify: Restart chrony
-
-  #
+  
