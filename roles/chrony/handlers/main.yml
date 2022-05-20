@@ -1,8 +1,8 @@
 ---
 # handlers file for chrony
 
-- name: Restart chronyd
+- name: Restart chrony
+  become: true
   service:
     name: chrony
     state: restarted
-    
