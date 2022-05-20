@@ -9,7 +9,7 @@
     update_cache: true
 
 - name: Upload chrony.conf template
-  tags: [chrony, chrony.config]
+  tags: [chrony, chrony-config]
   template:
     src: chrony.conf.j2
     dest: /etc/chrony/chrony.conf
@@ -19,9 +19,8 @@
     backup: true
   notify: Restart chrony
   
-- name: Restarting chrony
-  tags: [chrony,chrony.config,chrony-restart]
+- name: Restart chrony
   become: true
-  service:
-    name: chrony
-    state: restarted
+  tags: [chrony,chrony-config,chrony-restart]
+  command: /bin/true
+  notify: Restart chrony
