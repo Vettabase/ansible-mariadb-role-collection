@@ -2,12 +2,14 @@
 # tasks file for chrony
 
 - name: Install chrony
+  tags: chrony
   package:
     name: chrony
     state: present
     update_cache: true
 
 - name: Upload chrony.conf template
+  tags: [chrony, chrony.config]
   template:
     src: chrony.conf.j2
     dest: /etc/chrony/chrony.conf
@@ -17,3 +19,9 @@
     backup: true
   notify: Restart chrony
   
+- name: Restarting chrony
+  tags: [chrony,chrony.config,chrony-restart]
+  become: true
+  service:
+    name: chrony
+    state: restarted
