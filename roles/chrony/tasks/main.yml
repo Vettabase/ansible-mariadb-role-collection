@@ -1,24 +1,8 @@
 ---
 # tasks file for chrony
+- include_tasks: install.yml
+- include_tasks: configure.yml
 
-- name: Install chrony
-  tags: chrony
-  package:
-    name: chrony
-    state: present
-    update_cache: true
-
-- name: Upload chrony.conf template
-  tags: [chrony, chrony-config]
-  template:
-    src: chrony.conf.j2
-    dest: /etc/chrony/chrony.conf
-    owner: root
-    group: root
-    mode: 0644
-    backup: true
-  notify: Restart chrony
-  
 - name: Restart chrony
   become: true
   tags: [chrony,chrony-config,chrony-restart]
