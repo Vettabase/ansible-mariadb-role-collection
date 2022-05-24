@@ -1,17 +1,7 @@
 ---
-- name: Install Chorny - Debian based distributions
+- name: Install Chorny
   tags: chrony
-  apt:
-    name: chrony
+  package:
+    name: "{{ chrony_package }}"
     state: present
     update_cache: true
-    cache_valid_time: 3600
-  when: ansible_pkg_mgr == 'apt'
-
-- name: Install Chrony - RedHat based distributions
-  tags: chrony
-  yum:
-    name: chrony
-    state: present
-    update_cache: true
-  when: ansible_pkg_mgr == 'yum'

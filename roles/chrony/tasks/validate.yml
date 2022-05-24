@@ -7,3 +7,9 @@
     that: public_ntp_servers is not none
     fail_msg: "public_ntp_servers is not set"
     success_msg: "The item public_ntp_servers is defined"
+
+- name: Override Chrony defaults for RedHat systems.
+  set_fact:
+    chrony_service: chronyd
+    chrony_dir: /etc/
+  when: ansible_pkg_mgr == 'yum'

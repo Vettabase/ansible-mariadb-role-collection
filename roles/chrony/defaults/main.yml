@@ -6,3 +6,8 @@ public_ntp_servers:
   - time2.google.com
   - time3.google.com
   - time4.google.com
+
+chrony_package: chrony
+chrony_service: chrony
+chrony_dir: /etc/chrony/
+chrony_filename: chrony.conf

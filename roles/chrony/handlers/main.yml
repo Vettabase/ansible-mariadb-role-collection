@@ -4,13 +4,5 @@
 - name: Restart chrony
   become: true
   service:
-    name: chrony
+    name: "{{ chrony_service }}"
     state: restarted
-  when: ansible_pkg_mgr == 'apt'
-
-- name: Restart chronyd
-  become: true
-  service:
-    name: chronyd
-    state: restarted
-  when: ansible_pkg_mgr == 'yum'
