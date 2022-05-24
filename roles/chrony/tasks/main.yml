@@ -1,5 +1,7 @@
 ---
 # tasks file for chrony
+
+- include_tasks: validate.yml
 - include_tasks: install.yml
 - include_tasks: configure.yml
 
