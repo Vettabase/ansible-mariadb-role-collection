@@ -6,3 +6,11 @@
   service:
     name: chrony
     state: restarted
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Restart chronyd
+  become: true
+  service:
+    name: chronyd
+    state: restarted
+  when: ansible_pkg_mgr == 'yum'
