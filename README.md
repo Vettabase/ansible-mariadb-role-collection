@@ -9,8 +9,8 @@ The role is used to install and configure a MariaDB server.
 ### Virtual machine
 The role is used to configure the virtual machine to run MariaDB server.
 
-## Tested on
-The tests was made in the following environment:
+## Tests
+The tests was made in the following environments:
 - CentOS 7.8 x64
 - Ubuntu 20.04 LTS (Focal Fossa)
 ## Copyright and Contacts
