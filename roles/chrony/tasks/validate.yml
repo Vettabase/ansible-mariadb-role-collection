@@ -8,8 +8,10 @@
     fail_msg: "public_ntp_servers is not set"
     success_msg: "The item public_ntp_servers is defined"
 
-- name: Override Chrony defaults for RedHat systems.
-  set_fact:
-    chrony_service: chronyd
-    chrony_dir: /etc/
+- name: Load the Debian specific defaults
+  include_tasks: debian.yml
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Load the RedHat specific defaults
+  include_tasks: redhat.yml
   when: ansible_pkg_mgr == 'yum'
