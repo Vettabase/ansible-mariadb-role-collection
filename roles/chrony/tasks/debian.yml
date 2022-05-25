@@ -2,5 +2,5 @@
 - name: Override Chrony defaults for Debian systems.
   set_fact:
     chrony_service: chronyd
-    chrony_dir: /etc/
+    chrony_dir: /etc/chrony/
   when: chrony_dir == 'default' and ansible_pkg_mgr == 'apt'
