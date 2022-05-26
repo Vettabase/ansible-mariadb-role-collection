@@ -5,4 +5,4 @@
     name: "{{ chrony_package }}"
     state: present
     update_cache: true
-    enabled: true
+
