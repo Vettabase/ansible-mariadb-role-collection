@@ -4,4 +4,4 @@
     chrony_service: chronyd
     chrony_package: chrony
     chrony_dir: /etc/
-  when: chrony_dir == 'default' and ansible_pkg_mgr == 'yum'
+  when: chrony_dir == 'DEFAULT' and ansible_pkg_mgr == 'yum'
