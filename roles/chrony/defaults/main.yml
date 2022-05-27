@@ -1,6 +1,6 @@
 ---
 # defaults file for chrony
-public_ntp_servers:
+ntp_servers:
   - time.google.com
   - time1.google.com
   - time2.google.com
