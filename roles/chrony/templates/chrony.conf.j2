@@ -1,6 +1,6 @@
 # Managed by Ansible
 
-{% for server in public_ntp_servers %}
+{% for server in ntp_servers %}
 server {{server}} iburst
 {% endfor %}
 

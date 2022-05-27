@@ -4,5 +4,5 @@
 - name: Restart chrony
   become: true
   service:
-    name: chrony
+    name: "{{ chrony_service }}"
     state: restarted

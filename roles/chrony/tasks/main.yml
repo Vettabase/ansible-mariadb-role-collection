@@ -1,26 +1,20 @@
 ---
 # tasks file for chrony
 
-- name: Install chrony
-  tags: chrony
-  package:
-    name: chrony
-    state: present
-    update_cache: true
+- name: Validate if the ntp_servers is not none
+  tags: [chrony, chrony-validate]
+  assert:
+    that: ntp_servers is not none and ( ntp_servers | length > 0)
+    fail_msg: "ntp_servers is not set"
+    success_msg: "The item ntp_servers is defined"
 
-- name: Upload chrony.conf template
-  tags: [chrony, chrony-config]
-  template:
-    src: chrony.conf.j2
-    dest: /etc/chrony/chrony.conf
-    owner: root
-    group: root
-    mode: 0644
-    backup: true
-  notify: Restart chrony
-  
-- name: Restart chrony
-  become: true
-  tags: [chrony,chrony-config,chrony-restart]
-  command: /bin/true
-  notify: Restart chrony
+- name: Load the Debian specific defaults
+  include_tasks: debian.yml
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Load the RedHat specific defaults
+  include_tasks: redhat.yml
+  when: ansible_pkg_mgr == 'yum'
+
+- include_tasks: install.yml
+- include_tasks: configure.yml

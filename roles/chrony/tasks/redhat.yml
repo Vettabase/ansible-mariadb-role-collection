@@ -1,0 +1,7 @@
+---
+- name: Override Chrony defaults for RedHat like systems.
+  set_fact:
+    chrony_service: chronyd
+    chrony_package: chrony
+    chrony_dir: /etc/
+  when: chrony_dir == 'DEFAULT' and ansible_pkg_mgr == 'yum'
