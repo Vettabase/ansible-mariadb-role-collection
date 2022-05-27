@@ -43,4 +43,4 @@ BSD
 Author Information
 ------------------
 
-This role was written by Aldo Junior to be used in the configuration of a Chrony server on a database server.
+This role was written by [Aldo Junior](https://github.com/aldoribeirojr) to be used in the configuration of a Chrony server on a database server.
