@@ -2,7 +2,7 @@
 
 - name: Update all packages on {{ ansible_distribution }}.
   apt:
-    name: "*"
+    name: '*'
     state: present
     update_cache: true
 

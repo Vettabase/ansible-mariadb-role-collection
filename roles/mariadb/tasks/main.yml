@@ -1,14 +1,14 @@
 ---
 # tasks file for mariadb
 
-- name: set mariadb_server_architecture to "amd64".
+- name: Set mariadb_server_architecture to amd64.
   set_fact:
-    mariadb_server_architecture: "amd64"
-  when : ansible_architecture == "x86_64"
+    mariadb_server_architecture: 'amd64'
+  when : ansible_architecture == 'x86_64'
 
-- name: set mariadb_server_architecture to "aarch64".
+- name: Set mariadb_server_architecture to aarch64.
   set_fact:
-    mariadb_server_architecture: "aarch64"
-  when : ansible_architecture == "aarch64"
+    mariadb_server_architecture: 'aarch64'
+  when : ansible_architecture == 'aarch64'
 
 - include_tasks: prerequisites.yml
