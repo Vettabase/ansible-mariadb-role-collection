@@ -1,13 +1,13 @@
-Chrony
+# Chrony
 =========
 This role installs and configures the Chrony time server (for time sincronization).
 
-Requirements
+## Requirements
 ------------
 
 No extra packages needed.
 
-Role Variables
+## Role Variables
 --------------
 
 A description of the settable variables for this role (defaults/main.yml).
@@ -20,12 +20,12 @@ A description of the settable variables for this role (defaults/main.yml).
 | chrony_dir              | no      | yes      | eggs, spam                | The Chrony directory                     |
 | chrony_filename         | no      | yes      | eggs, spam                | The name of Chrony config filename       |
 
-Dependencies
+## Dependencies
 ------------
 
 None.
 
-Example Playbook
+## Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
@@ -35,12 +35,12 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - chorny
 
-License
+## License
 -------
 
 BSD
 
-Author Information
+## Author Information
 ------------------
 
 This role was written by [Aldo Junior](https://github.com/aldoribeirojr) to be used in the configuration of a Chrony server on a database server.
