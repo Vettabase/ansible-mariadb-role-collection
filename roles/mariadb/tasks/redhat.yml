@@ -1,27 +1,27 @@
 ---
-- name: Update all packages on {{ ansible_distribution }}.
+- name: Update all packages on {{ ansible_distribution }}
   yum:
     name: '*' 
     state: present
 
-- name: Add MariaDB GPG key on {{ ansible_distribution }}.
+- name: Add MariaDB GPG key on {{ ansible_distribution }}
   rpm_key:
     key: http://mirror1.cl.netactuate.com/mariadb/yum/RPM-GPG-KEY-MariaDB
     state: present
 
-- name: Add MariaDB repository on {{ ansible_distribution }}.
+- name: Add MariaDB repository on {{ ansible_distribution }}
   yum_repository:
     name: MariaDB
     description: MariaDB YUM repo
     baseurl: https://mirror1.cl.netactuate.com/mariadb/yum/{{ mariadb_server_version }}/{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}-{{ mariadb_server_architecture }}
     gpgcheck: 1
 
-- name: Install MariaDB Server on {{ ansible_distribution }}.
+- name: Install MariaDB Server on {{ ansible_distribution }}
   yum:
     name: mariadb-server
     state: present
 
-- name: Ensure MariaDB Server is running after reboot.
+- name: Ensure MariaDB Server is running after reboot
   service:
     name: mariadb
     enabled: yes
