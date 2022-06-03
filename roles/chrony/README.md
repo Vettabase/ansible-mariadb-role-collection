@@ -35,12 +35,13 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - chorny
 
-## License
--------
+## Copyright and Contacts
 
-BSD
+This repository is distributed under the terms of the GNU GPL, version 3. Copyright: Vettabase Ltd.
 
-## Author Information
-------------------
+To contact us
 
-This role was written by [Aldo Junior](https://github.com/aldoribeirojr) to be used in the configuration of a Chrony server on a database server.
+* info@vettabase.com
+* https://vettabase.com
+
+Maintainer: [Aldo Junior](https://github.com/aldoribeirojr)
