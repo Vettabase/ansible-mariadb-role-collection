@@ -11,7 +11,7 @@
     key: http://mirror1.cl.netactuate.com/mariadb/yum/RPM-GPG-KEY-MariaDB
     state: present
 
-- name: Add MariaDB repository on
+- name: Add MariaDB repository
   tags: [mariadb, mariadb-repository]
   yum_repository:
     name: MariaDB
@@ -19,7 +19,7 @@
     baseurl: https://mirror1.cl.netactuate.com/mariadb/yum/{{ mariadb_server_version }}/{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}-{{ mariadb_server_architecture }}
     gpgcheck: 1
 
-- name: Install MariaDB Server on
+- name: Install MariaDB Server
   tags: [mariadb]
   yum:
     name: mariadb-server
