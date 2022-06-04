@@ -32,11 +32,10 @@
   apt:
     name: mariadb-server
     state: present
-  notify: Restart MariaDB Server
+  notify: Start MariaDB Server
 
 - name: Ensure MariaDB Server is running after a reboot
   tags: [mariadb]
   service:
     name: mariadb
     enabled: yes
-    state: started

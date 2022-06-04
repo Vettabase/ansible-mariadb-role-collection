@@ -5,3 +5,9 @@
   service:
     name: mariadb
     state: restarted
+
+- name: Start MariaDB Server
+  tags: [mariadb]
+  service:
+    name: mariadb
+    state: started
