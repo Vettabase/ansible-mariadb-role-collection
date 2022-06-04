@@ -1,11 +1,12 @@
 ---
-
 - name: Update repositories cache
+  tags: [mariadb]
   apt:
     name: '*'
     state: present
 
 - name: Install prerequisites packages of MariaDB Server
+  tags: [mariadb]
   apt: name={{ item }} state=present
   with_items:
     - software-properties-common
@@ -13,23 +14,27 @@
     - apt-transport-https
 
 - name: Add MariaDB GPG key
+  tags: [mariadb, mariadb-repository]
   apt_key:
     id: F1656F24C74CD1D8
     url: https://mariadb.org/mariadb_release_signing_key.asc
     state: present
 
 - name: Add MariaDB repository
+  tags: [mariadb, mariadb-repository]
   apt_repository:
     repo: "deb [arch={{ mariadb_server_architecture }}] https://mirror1.cl.netactuate.com/mariadb/repo/{{ mariadb_server_version }}/{{ ansible_distribution | lower }} {{ ansible_facts.distribution_release }} main"
     state: present
     filename: MariaDB
 
 - name: Install MariaDB Server and update cache repository
+  tags: [mariadb]
   apt:
     name: mariadb-server
     state: present
 
 - name: Ensure MariaDB Server is running after a reboot
+  tags: [mariadb]
   service:
     name: mariadb
     enabled: yes

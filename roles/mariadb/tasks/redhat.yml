@@ -1,15 +1,18 @@
 ---
 - name: Update repositories cache
+  tags: [mariadb]
   yum:
     name: '*' 
     state: present
 
 - name: Add MariaDB GPG key
+  tags: [mariadb, mariadb-repository]
   rpm_key:
     key: http://mirror1.cl.netactuate.com/mariadb/yum/RPM-GPG-KEY-MariaDB
     state: present
 
 - name: Add MariaDB repository on
+  tags: [mariadb, mariadb-repository]
   yum_repository:
     name: MariaDB
     description: MariaDB YUM repo
@@ -17,11 +20,13 @@
     gpgcheck: 1
 
 - name: Install MariaDB Server on
+  tags: [mariadb]
   yum:
     name: mariadb-server
     state: present
 
 - name: Ensure MariaDB Server is running after reboot
+  tags: [mariadb]
   service:
     name: mariadb
     enabled: yes
