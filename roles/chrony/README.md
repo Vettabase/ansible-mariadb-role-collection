@@ -1,14 +1,14 @@
 # Chrony
-=========
+
 This role installs and configures the Chrony time server (for time sincronization).
 
 ## Requirements
-------------
+
 
 Ansible version 2.12.6.
 
 ## Role Variables
---------------
+
 
 A description of the settable variables for this role (defaults/main.yml).
 
@@ -21,12 +21,10 @@ A description of the settable variables for this role (defaults/main.yml).
 | chrony_filename         | no      | yes      | eggs, spam                | The name of Chrony config filename       |
 
 ## Dependencies
-------------
 
 None.
 
 ## Example Playbook
-----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
