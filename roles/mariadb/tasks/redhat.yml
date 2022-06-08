@@ -1,9 +1,9 @@
 ---
-- name: Update repositories cache
+- name: Upgrade all packages
   tags: [mariadb]
   yum:
     name: '*' 
-    state: present
+    state: latest
 
 - name: Add MariaDB GPG key
   tags: [mariadb, mariadb-repository]

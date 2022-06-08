@@ -1,9 +1,9 @@
 ---
-- name: Update repositories cache
+- name: Upgrade all packages
   tags: [mariadb]
   apt:
     name: '*'
-    state: present
+    state: latest
 
 - name: Install prerequisites packages of MariaDB Server
   tags: [mariadb]
