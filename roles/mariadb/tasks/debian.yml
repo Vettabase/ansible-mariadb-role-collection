@@ -1,9 +1,11 @@
 ---
-- name: Upgrade all packages
+- name: Upgrade all packages to their latest version
   tags: [mariadb]
   apt:
     name: '*'
     state: latest
+    update_cache: true
+    cache_valid_time: 3600
 
 - name: Install prerequisites packages of MariaDB Server
   tags: [mariadb]
