@@ -25,9 +25,3 @@
     name: mariadb-server
     state: present
   notify: start mariadb server
-
-- name: Ensure MariaDB Server is running after reboot
-  tags: [mariadb]
-  service:
-    name: mariadb
-    enabled: yes
