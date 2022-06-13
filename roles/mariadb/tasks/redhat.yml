@@ -18,4 +18,5 @@
   yum:
     name: mariadb-server
     state: present
+    update_cache: true
   notify: start mariadb server
