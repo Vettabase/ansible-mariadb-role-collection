@@ -24,7 +24,7 @@
   yum:
     name: mariadb-server
     state: present
-  notify: Start MariaDB Server
+  notify: start mariadb server
 
 - name: Ensure MariaDB Server is running after reboot
   tags: [mariadb]

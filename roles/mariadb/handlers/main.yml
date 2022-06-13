@@ -1,12 +1,12 @@
 ---
 # handlers file for mariadb
-- name: Restart MariaDB Server
+- name: restart mariadb server
   become: true
   service:
     name: mariadb
     state: restarted
 
-- name: Start MariaDB Server
+- name: start mariadb server
   tags: [mariadb]
   service:
     name: mariadb
