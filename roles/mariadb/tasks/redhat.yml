@@ -10,7 +10,7 @@
   yum_repository:
     name: MariaDB
     description: MariaDB YUM repo
-    baseurl: https://mirror1.cl.netactuate.com/mariadb/yum/{{ mariadb_server_version }}/{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}-{{ mariadb_server_architecture }}
+    baseurl: https://mirror1.cl.netactuate.com/mariadb/yum/{{ mariadb_server_version }}/{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}-{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}
     gpgcheck: 1
 
 - name: Install MariaDB Server

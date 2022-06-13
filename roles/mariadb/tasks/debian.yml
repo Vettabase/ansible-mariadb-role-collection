@@ -17,7 +17,7 @@
 - name: Add MariaDB repository
   tags: [mariadb, mariadb-repository]
   apt_repository:
-    repo: "deb [arch={{ mariadb_server_architecture }}] https://mirror1.cl.netactuate.com/mariadb/repo/{{ mariadb_server_version }}/{{ ansible_distribution | lower }} {{ ansible_facts.distribution_release }} main"
+    repo: "deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}] https://mirror1.cl.netactuate.com/mariadb/repo/{{ mariadb_server_version }}/{{ ansible_distribution | lower }} {{ ansible_facts.distribution_release }} main"
     state: present
     filename: MariaDB
 
