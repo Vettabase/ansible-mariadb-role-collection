@@ -1,10 +1,4 @@
 ---
-- name: Upgrade all packages
-  tags: [mariadb]
-  yum:
-    name: '*' 
-    state: latest
-
 - name: Add MariaDB GPG key
   tags: [mariadb, mariadb-repository]
   rpm_key:
