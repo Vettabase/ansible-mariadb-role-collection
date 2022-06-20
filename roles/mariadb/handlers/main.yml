@@ -2,7 +2,6 @@
 # handlers file for mariadb
 
 - name: start mariadb server
-  tags: [mariadb]
   service:
     name: mariadb
     state: started
