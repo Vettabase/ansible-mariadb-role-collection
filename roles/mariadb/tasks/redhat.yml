@@ -1,12 +1,12 @@
 ---
 - name: Add MariaDB GPG key
-  tags: [mariadb, mariadb-repository]
+  tags: [mariadb]
   rpm_key:
     key: http://mirror1.cl.netactuate.com/mariadb/yum/RPM-GPG-KEY-MariaDB
     state: present
 
 - name: Add MariaDB repository
-  tags: [mariadb, mariadb-repository]
+  tags: [mariadb]
   yum_repository:
     name: MariaDB
     description: MariaDB YUM repo
