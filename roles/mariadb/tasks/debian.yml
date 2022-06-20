@@ -26,4 +26,4 @@
   apt:
     name: mariadb-server
     state: present
-  notify: start mariadb server
+
