@@ -12,7 +12,7 @@ A description of the settable variables for this role (defaults/main.yml).
 
 | Variable                | Required | Default | Choices                   | Comments                                 |
 |-------------------------|----------|---------|---------------------------|------------------------------------------|
-| mariadb_server_version  | no       | yes      | list                     | The MariaDB Server version               |
+| mariadb_server_version  | yes      | yes      | list                     | The MariaDB Server version               |
 
 
 ## Dependencies
