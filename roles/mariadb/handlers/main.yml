@@ -5,3 +5,8 @@
   service:
     name: mariadb
     state: started
+
+- name: restart mariadb server
+  service:
+    name: mariadb
+    state: restarted
