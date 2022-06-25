@@ -1,0 +1,27 @@
+---
+- name: Update ca-certificates
+  yum:
+    name: ca-certificates
+    state: latest
+    update_cache: true
+
+- name: Add MariaDB GPG key
+  tags: [mariadb]
+  rpm_key:
+    key: "{{ mariadb_server_mirror }}/yum/RPM-GPG-KEY-MariaDB"
+    state: present
+
+- name: Add MariaDB repository
+  tags: [mariadb]
+  yum_repository:
+    name: MariaDB
+    description: MariaDB YUM repo
+    baseurl: "{{ mariadb_server_mirror }}/yum/{{ mariadb_server_version }}/{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}-{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
+    gpgcheck: 1
+
+- name: Install MariaDB Server
+  tags: [mariadb]
+  yum:
+    name: mariadb-server
+    state: present
+    update_cache: true

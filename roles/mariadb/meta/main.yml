@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Aldo Junior
+  description: MariaDB Role
+  company: Vettabase
+
+  license: GPL-3.0-only
+
+  min_ansible_version: '2.1'
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 'focal'
+  galaxy_tags: [mariadb,databases]
+
+dependencies: []
