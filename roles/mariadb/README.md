@@ -13,8 +13,8 @@ A description of the settable variables for this role (defaults/main.yml).
 | Variable                | Required | Default | Choices                   | Comments                                 |
 |-------------------------|----------|---------|---------------------------|------------------------------------------|
 | mariadb_server_version  | yes      | yes      | list                     | The MariaDB Server version               |
-
-
+| mariadb_binlog_enabled  | no       | false    | boolean                  | Enable or Disable binlog                 |
+| mariadb_group_variables | no       | yes      | list                     | List of parameters of MariaDB            |
 ## Dependencies
 
 None.

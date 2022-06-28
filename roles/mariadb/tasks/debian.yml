@@ -27,3 +27,12 @@
     name: mariadb-server
     state: present
     update_cache: yes
+
+- name: Override default my.cnf file
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
+    owner: root
+    group: root
+    mode: 644
+  become: true
