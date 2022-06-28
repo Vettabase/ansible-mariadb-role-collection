@@ -1,0 +1,10 @@
+---
+# tasks file for jemalloc
+
+- name: Include debian.yml if operating system is Debian based
+  ansible.builtin.import_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Include debian.yml if operating system is RedHat based
+  ansible.builtin.import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'

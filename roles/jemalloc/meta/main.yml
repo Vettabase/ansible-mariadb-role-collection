@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Aldo Junior
+  description: Jemalloc instalation
+  company: Vettabase
+
+  license: license (GPL-3.0-or-later)
+
+  min_ansible_version: 2.1
+
+  platforms:
+    - name: Debian
+      versions:
+        - focal
+    - name: RedHat
+      versions:
+        - centos7
+
+  galaxy_tags: [jemalloc]
+
+dependencies: []

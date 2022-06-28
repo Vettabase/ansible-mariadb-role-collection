@@ -1,0 +1,56 @@
+---
+- name: Verify if Jemalloc is already installed
+  ansible.builtin.find:
+    path: /usr/
+    file_type: file
+    pattern: 'libjemalloc*'
+    recurse: true
+  register: already_installed
+
+- name: Install Percona release official repository
+  ansible.builtin.apt:
+    deb: "https://repo.percona.com/apt/percona-release_latest.{{ ansible_facts.distribution_release }}_all.deb"
+    state: present
+  become: true
+  register: percona_repository_installed
+
+- name: Install Jemalloc
+  ansible.builtin.apt:
+    name: libjemalloc2
+    state: present
+    update_cache: true
+  when: already_installed.files[0].path is not defined
+  become: true
+
+- name: Get the path of jemalloc instalation
+  ansible.builtin.find:
+    path: /usr/
+    file_type: file
+    pattern: 'libjemalloc*'
+    recurse: true
+  register: already_installed
+
+- name: Replace EnvironmentFile to use Jemalloc
+  ansible.builtin.lineinfile:
+    path: '/usr/lib/systemd/system/mysql.service'
+    regexp: '^EnvironmentFile='
+    line: 'EnvironmentFile=-/etc/sysconfig/mysql'
+
+- name: Create /etc/sysconfig/ directory if not exists.
+  ansible.builtin.file:
+    path: /etc/sysconfig/
+    state: directory
+    mode: '0755'
+
+- name: Set the path the Jemalloc on /etc/sysconfig/mysql file
+  ansible.builtin.set_fact:
+    jemalloc_ld_preload: "{{ already_installed.files[0].path }}"
+
+- name: Create repository /etc/sysconfig/mysql
+  ansible.builtin.template:
+    src: override.conf.j2
+    dest: /etc/sysconfig/mysql
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload mysql daemon
