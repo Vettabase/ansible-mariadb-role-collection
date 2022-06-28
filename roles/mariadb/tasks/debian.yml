@@ -1,0 +1,38 @@
+---
+- name: Install prerequisites packages of MariaDB Server
+  tags: [mariadb]
+  apt: name={{ item }} state=present
+  with_items:
+    - software-properties-common
+    - dirmngr
+    - apt-transport-https
+
+- name: Add MariaDB GPG key
+  tags: [mariadb]
+  apt_key:
+    id: F1656F24C74CD1D8
+    url: https://mariadb.org/mariadb_release_signing_key.asc
+    state: present
+
+- name: Add MariaDB repository
+  tags: [mariadb]
+  apt_repository:
+    repo: "deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}] {{ mariadb_server_mirror }}/repo/{{ mariadb_server_version }}/{{ ansible_distribution | lower }} {{ ansible_facts.distribution_release }} main"
+    state: present
+    filename: MariaDB
+
+- name: Install MariaDB Server and update cache repository
+  tags: [mariadb]
+  apt:
+    name: mariadb-server
+    state: present
+    update_cache: yes
+
+- name: Override default my.cnf file
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
+    owner: root
+    group: root
+    mode: 644
+  become: true

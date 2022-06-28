@@ -1,0 +1,23 @@
+---
+# defaults file for mariadb
+mariadb_server_version: '10.6'
+mariadb_server_mirror: 'https://mirror1.cl.netactuate.com/mariadb'
+mariadb_binlog_enabled: false
+mariadb_group_variables:
+- { name: 'innodb_buffer_pool_size', value: '512M' }
+- { name: 'innodb_flush_method', value: 'O_DIRECT' }
+- { name: 'innodb_flush_neighbors', value: 0 }
+- { name: 'innodb_file_per_table', value: 'ON' }
+- { name: 'innodb_log_file_size', value: '2G' }
+- { name: 'innodb_stats_on_metadata', value: 0 }
+
+- { name: 'max_allowed_packet', value: '1G' }
+- { name: 'bind_address', value: '0.0.0.0' }
+- { name: 'max_connections', value: 1000 }
+- { name: 'max_connect_errors', value: 100000 }
+- { name: 'interactive_timeout', value: 180 }
+- { name: 'wait_timeout', value: 180 }
+- { name: 'back_log', value: 256 }
+
+- { name: 'thread_cache_size', value: 32 }
+- { name: 'thread_stack', value: '192K' }

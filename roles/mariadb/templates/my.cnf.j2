@@ -1,0 +1,27 @@
+[mysqld]
+user = mysql
+port = 3306
+# Disable MySQL Query Cache (Avoid contention problems).
+query_cache_size = 0
+query_cache_type = OFF
+default_storage_engine = InnoDB
+
+{% if mariadb_binlog_enabled is true %}
+server_id = 1
+log_bin = mysql-bin
+max_binlog_size = 1073741824
+expire_logs_days = 7
+binlog_format = ROW
+sync_binlog = 1
+sync_relay_log = 1
+relay_log_info_repository = TABLE
+master_info_repository = TABLE
+tx_isolation = 'READ-COMMITTED'
+innodb_autoinc_lock_mode = 2
+{% endif %}
+
+{% for var in mariadb_group_variables %}
+{{ var.name }} = {{ var.value }}
+{% endfor %}
+
+
