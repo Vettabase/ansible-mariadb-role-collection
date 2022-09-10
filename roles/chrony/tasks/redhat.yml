@@ -1,5 +1,5 @@
 ---
-- name: Override Chrony defaults for RedHat like systems.
+- name: Override Chrony defaults for RedHat like systems
   set_fact:
     chrony_service:  "{{ (chrony_service   == 'DEFAULT')  | ternary ('chronyd',      chrony_service) }}"
     chrony_package:  "{{ (chrony_package   == 'DEFAULT')  | ternary ('chrony',       chrony_package) }}"
