@@ -1,6 +1,6 @@
 ---
 - name: Upload chrony.conf template
-  tags: [chrony, chrony-config]
+  tags: always
   template:
     src: chrony.conf.j2
     dest: "{{ chrony_dir }}/{{ chrony_filename }}"

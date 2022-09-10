@@ -1,6 +1,6 @@
 ---
 - name: Install Chorny
-  tags: chrony
+  tags: always
   package:
     name: "{{ chrony_package }}"
     state: present

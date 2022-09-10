@@ -2,7 +2,7 @@
 # Validate variables used by this role
 
 - name: Validate if the chrony_servers is not none
-  tags: [chrony, chrony-validate]
+  tags: always
   assert:
     that: chrony_servers is not none and ( chrony_servers | length > 0)
     fail_msg: "chrony_servers is not set or empty"

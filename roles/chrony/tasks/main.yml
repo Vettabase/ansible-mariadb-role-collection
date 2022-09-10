@@ -4,13 +4,20 @@
 # For this reason, we run (one of) them before validation.
 
 - name: Load the Debian specific defaults
+  tags: [ chrony, chrony-config, chrony-validate ]
   include_tasks: debian.yml
   when: ansible_pkg_mgr == 'apt'
 
 - name: Load the RedHat specific defaults
+  tags: [ chrony, chrony-config, chrony-validate ]
   include_tasks: redhat.yml
   when: ansible_pkg_mgr == 'yum'
 
 - include_tasks: validate.yml
+  tags: [ chrony, chrony-config, chrony-validate ]
+
 - include_tasks: install.yml
+  tags: [ chrony ]
+
 - include_tasks: configure.yml
+  tags: [ chrony, chrony-config ]
