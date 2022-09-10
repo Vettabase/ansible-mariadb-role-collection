@@ -1,0 +1,8 @@
+---
+
+- name: Validate if the ntp_servers is not none
+  tags: [chrony, chrony-validate]
+  assert:
+    that: ntp_servers is not none and ( ntp_servers | length > 0)
+    fail_msg: "ntp_servers is not set or empty"
+    success_msg: "ntp_servers is defined and not empty"
