@@ -1,5 +1,4 @@
 ---
-# tasks file for chrony
 
 # System-specific files only set facts.
 # For this reason, we run (one of) them before validation.
