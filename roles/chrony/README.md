@@ -10,17 +10,17 @@ Ansible version 2.10.17.
 No dependencies.
 
 
-## Role Variables
+## Variables
 
 A description of the settable variables for this role (defaults/main.yml).
 
-| Variable                | Required | Default | Choices                   | Comments                                 |
-|-------------------------|----------|---------|---------------------------|------------------------------------------|
-| ntp_servers             | no      | yes      | list                      | The NTP list of servers                  |
-| chrony_package          | no      | yes      | eggs, spam                | The name of Chrony package               |
-| chrony_service          | no      | yes      | eggs, spam                | The name of NTP service                  |
-| chrony_dir              | no      | yes      | eggs, spam                | The Chrony directory                     |
-| chrony_filename         | no      | yes      | eggs, spam                | The name of Chrony config filename       |
+| Variable           | Required | Description                 |
+|--------------------|----------|-----------------------------|
+| ntp_servers        | No       | The NTP list of servers     |
+| chrony_package     | No       | Chrony package name         |
+| chrony_service     | No       | NTP service name            |
+| chrony_dir         | No       | chrony configuration dir    |
+| chrony_filename    | No       | chrony configuration file   |
 
 
 ## Copyright and Contacts
