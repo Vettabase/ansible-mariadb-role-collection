@@ -1,7 +1,7 @@
 ---
 - name: Override Chrony defaults for RedHat like systems.
   set_fact:
-    chrony_service: chronyd
-    chrony_package: chrony
-    chrony_dir: /etc/
-    chrony_filename: "{{ (chrony_filename == 'DEFAULT') | ternary ('chrony.conf', chrony_filename) }}"
+    chrony_service:  "{{ (chrony_service   == 'DEFAULT')  | ternary ('chronyd',      chrony_service) }}"
+    chrony_package:  "{{ (chrony_package   == 'DEFAULT')  | ternary ('chrony',       chrony_package) }}"
+    chrony_dir:      "{{ (chrony_dir       == 'DEFAULT')  | ternary ('/etc/',        chrony_dir) }}"
+    chrony_filename: "{{ (chrony_filename  == 'DEFAULT')  | ternary ('chrony.conf',  chrony_filename) }}"
