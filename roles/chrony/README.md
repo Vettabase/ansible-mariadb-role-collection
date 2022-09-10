@@ -42,4 +42,4 @@ To contact us
 * info@vettabase.com
 * https://vettabase.com
 
-Maintainer: [Aldo Junior](https://github.com/aldoribeirojr)
+Maintainer: Federico Razzoli
