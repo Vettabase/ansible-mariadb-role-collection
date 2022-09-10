@@ -14,13 +14,17 @@ No dependencies.
 
 A description of the settable variables for this role (defaults/main.yml).
 
-| Variable           | Required | Description                 |
-|--------------------|----------|-----------------------------|
-| chrony_servers     | No       | The NTP list of servers     |
-| chrony_package     | No       | Chrony package name         |
-| chrony_service     | No       | NTP service name            |
-| chrony_dir         | No       | chrony configuration dir    |
-| chrony_filename    | No       | chrony configuration file   |
+| Variable           | Required | Description                            |
+|--------------------|----------|----------------------------------------|
+| chrony_servers     | No       | The NTP list of servers                |
+| chrony_package     | No       | Chrony package name. OS-dependent      |
+| chrony_service     | No       | NTP service name. OS-dependent         |
+| chrony_dir         | No       | chrony configuration dirOS-dependent   |
+| chrony_filename    | No       | chrony configuration fileOS-dependent  |
+
+Where "OS-dependent" is specified, the variable default is 'DEFAULT'. If this value
+is used, the role replaces it with a sensible default value, which depends on the
+operating system.
 
 
 ## Copyright and Contacts
