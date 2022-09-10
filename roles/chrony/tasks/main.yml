@@ -6,7 +6,7 @@
   assert:
     that: ntp_servers is not none and ( ntp_servers | length > 0)
     fail_msg: "ntp_servers is not set"
-    success_msg: "The item ntp_servers is defined"
+    success_msg: "ntp_servers is defined"
 
 - name: Load the Debian specific defaults
   include_tasks: debian.yml
