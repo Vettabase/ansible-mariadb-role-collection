@@ -5,7 +5,7 @@ This role installs and configures the Chrony time server (for time sincronizatio
 
 ## Requirements
 
-Ansible version 2.12.6.
+Ansible version 2.10.17.
 
 
 ## Role Variables
