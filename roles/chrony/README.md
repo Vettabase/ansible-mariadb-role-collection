@@ -16,7 +16,7 @@ A description of the settable variables for this role (defaults/main.yml).
 
 | Variable           | Required | Description                 |
 |--------------------|----------|-----------------------------|
-| ntp_servers        | No       | The NTP list of servers     |
+| chrony_servers     | No       | The NTP list of servers     |
 | chrony_package     | No       | Chrony package name         |
 | chrony_service     | No       | NTP service name            |
 | chrony_dir         | No       | chrony configuration dir    |
