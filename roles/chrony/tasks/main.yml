@@ -6,12 +6,12 @@
 - name: Load the Debian specific defaults
   tags: [ chrony, chrony-config, chrony-validate ]
   include_tasks: debian.yml
-  when: ansible_pkg_mgr == 'apt'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Load the RedHat specific defaults
   tags: [ chrony, chrony-config, chrony-validate ]
   include_tasks: redhat.yml
-  when: ansible_pkg_mgr == 'yum'
+  when: ansible_facts['os_family'] == 'RedHat'
 
 - include_tasks: validate.yml
   tags: [ chrony, chrony-config, chrony-validate ]
