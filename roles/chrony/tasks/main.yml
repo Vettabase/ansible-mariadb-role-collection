@@ -1,7 +1,8 @@
 ---
 # tasks file for chrony
 
-- include_tasks: validate.yml
+# System-specific files only set facts.
+# For this reason, we run (one of) them before validation.
 
 - name: Load the Debian specific defaults
   include_tasks: debian.yml
@@ -11,5 +12,6 @@
   include_tasks: redhat.yml
   when: ansible_pkg_mgr == 'yum'
 
+- include_tasks: validate.yml
 - include_tasks: install.yml
 - include_tasks: configure.yml
