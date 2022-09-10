@@ -7,6 +7,8 @@ This role installs and configures the Chrony time server (for time sincronizatio
 
 Ansible version 2.10.17.
 
+No dependencies.
+
 
 ## Role Variables
 
@@ -19,11 +21,6 @@ A description of the settable variables for this role (defaults/main.yml).
 | chrony_service          | no      | yes      | eggs, spam                | The name of NTP service                  |
 | chrony_dir              | no      | yes      | eggs, spam                | The Chrony directory                     |
 | chrony_filename         | no      | yes      | eggs, spam                | The name of Chrony config filename       |
-
-
-## Dependencies
-
-None.
 
 
 ## Copyright and Contacts
